@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout SCM') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-org/demo-role-repo.git'
+                git branch: 'main', url: 'https://github.com/Abhishek-snaatak/Shared-library-for-Ansible-Role-CICD-Demo-project'
             }
         }
 
