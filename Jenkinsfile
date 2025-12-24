@@ -3,22 +3,21 @@
 pipeline {
     agent any
 
-    environment {
-        ROLE_NAME = 'common'
-        TEST_PLAYBOOK = 'tests/test.yml'
-    }
-
     stages {
         stage('Checkout SCM') {
             steps {
-                git branch: 'main', url: 'https://github.com/Abhishek-snaatak/Shared-library-for-Ansible-Role-CICD-Demo-project'
+                git branch: 'main',
+                    url: 'https://github.com/Abhishek-snaatak/Shared-library-for-Ansible-Role-CICD-Demo-project'
             }
         }
 
         stage('Ansible Role CI') {
             steps {
-                // Call shared library
-                ansibleRoleCI(roleName: env.ROLE_NAME, testPlaybook: env.TEST_PLAYBOOK)
+                // Call shared library directly
+                ansibleRoleCI(
+                    roleName: 'roles',
+                    testPlaybook: 'tests/test.yml'
+                )
             }
         }
     }
