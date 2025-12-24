@@ -1,8 +1,6 @@
 ---
-- name: Test common role
-  hosts: localhost
-  connection: local
-  gather_facts: false
-
+- name: Apply common role
+  hosts: local
+  become: false
   roles:
-    - role: roles/common
+    - common
