@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout SCM') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/Abhishek-snaatak/Shared-library-for-Ansible-Role-CICD-Demo-project'
+                    url: 'https://github.com/Abhishek-snaatak/Shared-library-for-Ansible-Playbook-CI-Demo-project'
             }
         }
 
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 ansibleRoleCI(
                     roleName: 'roles',
-                    testPlaybook: 'tests/test.yml'
+                    testPlaybook: 'playbooks/site.yml'
                 )
             }
         }
