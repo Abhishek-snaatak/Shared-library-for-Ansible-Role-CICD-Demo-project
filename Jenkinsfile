@@ -14,7 +14,7 @@ pipeline {
         stage('Ansible Role CI') {
             steps {
                 ansibleRoleCI(
-                    roleName: 'roles',
+                    roleName: 'playbooks/roles',
                     testPlaybook: 'playbooks/site.yml'
                 )
             }
