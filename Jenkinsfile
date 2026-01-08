@@ -13,7 +13,6 @@ pipeline {
 
         stage('Ansible Role CI') {
             steps {
-                // Call shared library directly
                 ansibleRoleCI(
                     roleName: 'roles',
                     testPlaybook: 'tests/test.yml'
