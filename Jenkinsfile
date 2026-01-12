@@ -11,11 +11,13 @@ pipeline {
             }
         }
 
-        stage('Ansible Role CI') {
+        stage('Ansible Playbook CI') {
             steps {
                 ansibleRoleCI(
-                    roleName: 'playbooks/roles',
-                    testPlaybook: 'playbooks/site.yml'
+                    roleName: 'common',
+                    playbook: 'playbooks/site.yml',
+                    inventory: 'inventory/dev.ini',
+                    rolesPath: 'playbooks/roles'
                 )
             }
         }
@@ -23,10 +25,10 @@ pipeline {
 
     post {
         success {
-            echo 'Role CI Passed ✅'
+            echo 'Playbook CI Passed ✅'
         }
         failure {
-            echo 'Role CI Failed ❌'
+            echo 'Playbook CI Failed ❌'
         }
     }
 }
